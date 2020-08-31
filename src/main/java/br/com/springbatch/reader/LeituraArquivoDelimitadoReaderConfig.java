@@ -17,7 +17,7 @@ public class LeituraArquivoDelimitadoReaderConfig {
 	@Bean
 	public FlatFileItemReader<Cliente> leituraArquivoDelimitadoReader(
 			@Value("#{jobParameters['arquivoClientes']}") Resource arquivoClientes) {
-			System.out.println("Arquivo => " + arquivoClientes);
+			
 			if(arquivoClientes == null || !arquivoClientes.exists()) {
 				throw new RuntimeException("Arquivo não encontrado");
 			}

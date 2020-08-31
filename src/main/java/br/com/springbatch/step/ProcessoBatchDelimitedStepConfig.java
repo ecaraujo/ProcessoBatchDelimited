@@ -17,13 +17,13 @@ public class ProcessoBatchDelimitedStepConfig {
 	public StepBuilderFactory stepBuilderFactory;
 	
 	@Bean
-	public Step processoBatchDelimitedStep(ItemReader<Cliente> leituraArquivoDelimitadoReader, ItemWriter<Cliente> leituraArquivoDelimitadoWriter) {
+	public Step processoBatchDelimitedStep(ItemReader<Cliente> leituraArquivoDelimitadoReader, ItemWriter<Cliente> arquivoDelimitadoWriter) {
 		
 		return stepBuilderFactory
 				.get("processoBatchDelimitedStep")
 				.<Cliente, Cliente>chunk(1)
 				.reader(leituraArquivoDelimitadoReader)
-				.writer(leituraArquivoDelimitadoWriter)
+				.writer(arquivoDelimitadoWriter)
 				.build();
 		
 		
